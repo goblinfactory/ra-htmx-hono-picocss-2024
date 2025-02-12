@@ -5,7 +5,7 @@ compatibility_date = "2024-12-18"
 compatibility_flags = ["nodejs_compat"]
 
 routes = [
-  { pattern = "htmx-ra.goblinfactory.co.uk", custom_domain = true }
+  { pattern = "htmx-ra.alanhemmings.com", custom_domain = true }
 ]
 
 workers_dev = false

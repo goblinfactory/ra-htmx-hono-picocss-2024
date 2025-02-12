@@ -2,7 +2,7 @@
 
 Goblinfactory reference architecture using [Cloudflare workers](https://developers.cloudflare.com/workers/), [Hono](https://hono.dev/), [Htmx](https://htmx.org/) and [PicoCSS](https://picocss.com/).
 
-- Live demo : https:https://htmx-demo.goblinfactory.co.uk/
+- Live demo : https://htmx-ra.alanhemmings.com/
 - github repo:  https://github.com/goblinfactory-pvt/ra-htmx-hono-picocss-2024
 
 ## How to use this project
