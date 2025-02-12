@@ -5,6 +5,23 @@ Goblinfactory reference architecture using [Cloudflare workers](https://develope
 - Live demo : https:https://htmx-demo.goblinfactory.co.uk/
 - github repo:  https://github.com/goblinfactory-pvt/ra-htmx-hono-picocss-2024
 
+## How to use this project
+
+```bash
+Git clone `https://github.com/goblinfactory/ra-htmx-hono-picocss-2024.git`
+npm install
+npm run dev
+```
+
+After running the above, you should see Cloudflare wrangler message below;
+```
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│  [b] open a browser, [d] open devtools, [l] turn off local mode, [c] clear console, [x] to exit  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+```
+
+Press `b`, to open browser and test the app. Make code changes, and just hit refresh in the browser. 
+
 ## Random notes
 
 To get htmx intellisense working in vscode, incude the following `global.d.ts` file in root. Same folder as `tsconfig.json`
