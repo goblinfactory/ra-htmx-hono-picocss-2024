@@ -1,0 +1,15 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "ra-htmx-hono-picocss-2024"
+main = "src/index.tsx"
+compatibility_date = "2024-12-18"
+compatibility_flags = ["nodejs_compat"]
+
+routes = [
+  { pattern = "htmx-ra.goblinfactory.co.uk", custom_domain = true }
+]
+
+workers_dev = false
+
+[observability]
+enabled = true
+

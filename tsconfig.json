@@ -1,0 +1,37 @@
+{
+	"compilerOptions": {
+		"sourceMap": true,
+		"target": "es2021",
+		"lib": ["es2021"],
+		"jsx": "react-jsx",
+		"jsxImportSource": "hono/jsx",
+		"module": "nodenext",
+		"moduleResolution": "nodenext",
+		"types": [
+			"@cloudflare/workers-types/2023-07-01",
+			"typed-htmx"
+		],
+		"resolveJsonModule": true,
+		"allowJs": true,
+		"checkJs": false,
+		"noEmit": true,
+		"isolatedModules": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"skipLibCheck": true,
+		"baseUrl": "./",
+		"paths": {
+			"@/*": ["src/*"],
+		  }		
+	},
+	"exclude": ["test", "src/**/*.spec.ts" ], 
+	"include": [
+		"worker-configuration.d.ts", 
+		"src/**/*.ts", 
+		"src/**/*.js", 
+		"src/**/*.tsx", 
+		"global.d.ts", 
+		"test/global.d.ts", 
+	]
+}
