@@ -29,7 +29,7 @@ const Login = () => {
                 <fieldset>
                     <label htmlFor="remember">
                         <input type="checkbox" role="switch" id="remember" name="remember" />
-                        Remember me (for 2 days)
+                        Remember me (change from session cookie to persistent for 1 hour.)
                     </label>
                 </fieldset>
                 <button type="submit">
