@@ -5,6 +5,7 @@ const Homepage = () => {
         <Fragment>
             <h2>HTMX reference architecture sandbox</h2>
             <p>My <a href='https://alanhemmings.com/posts/about-me'>(Alan's)</a> reference architecture for a dead simple edge worker friendly stack using CF Workers, Hono, Htmx and PicoCSS.</p>
+            <p>Repo here : <a href='https://github.com/goblinfactory/ra-htmx-hono-picocss-2024'>https://github.com/goblinfactory/ra-htmx-hono-picocss-2024</a></p>
             <p>Please note, this is not meant as a demo or as a tutorial; it's an important (deliberately minimalist) reference architecture.
                 This allows me to quickly test htmx features safely in isolation before applying them to my production project.
                 The source code also serves as documentation for patterns of how to apply htmx in my projects consistently, and how different problems are addressed.
