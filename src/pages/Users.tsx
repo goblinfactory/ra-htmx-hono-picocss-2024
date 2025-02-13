@@ -56,7 +56,7 @@ const Users: FC<UsersProps> = (props) => {
     return (
         <Fragment>
             <h2>Users</h2>
-            <p>User browser with htmx infinite scroll. Start typing anything to search. Includes a small debounce. Observe that the link to this "users" page above is  <i>Non boosted</i>. Which means it wont have a soft transition when navigating via the menu above.</p>
+            <p>User browser with htmx infinite scroll. Start typing anything to search. Includes a small debounce. Open F12, and observe the network requests, then scroll down and see additional requests per "page" of "more" information. Observe no other housekeeping requests. Extremely clean.</p>
             <label htmlFor="search">Search</label>
             <input
                 type="search"

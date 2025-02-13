@@ -10,6 +10,19 @@ Goblinfactory reference architecture using [Cloudflare workers](https://develope
 ```bash
 Git clone `https://github.com/goblinfactory/ra-htmx-hono-picocss-2024.git`
 npm install
+```
+
+**Run the tests**
+
+Currently the only tests in place are for the **Jwt auth middleware**, and only because the tests serve as valuable reference architecture documentation `how to`.
+
+```bash
+npm run test
+```
+
+**Run the app**
+
+```bash
 npm run dev
 ```
 
@@ -21,6 +34,10 @@ After running the above, you should see Cloudflare wrangler message below;
 ```
 
 Press `b`, to open browser and test the app. Make code changes, and just hit refresh in the browser. 
+
+## Do not use this project for production!
+
+`Demo secrets are hard coded so that you can clone the project and run it. Move all secrets to Keyvault, env variables and change them!`
 
 ## Random notes
 
@@ -74,6 +91,14 @@ htmx.defineExtension('path-params', {
 })
 ```
 
+## How to change htmx to post json instead of form data
+
+Use the recommended extension, `form-json`
+
+- https://github.com/xehrad/form-json/blob/main/README.md
+
+```
+
 ## other changes needed
 
 1. Added path aliasing to avoid error and to support zod and hono and getcookie and setCookie.
@@ -83,4 +108,5 @@ Relative import paths need explicit file extensions in ECMAScript imports when '
 
 ## useful references
 
-Learn api JWT authentication:  https://www.youtube.com/watch?v=doZ6Y0oub_8
+- Learn api JWT authentication:  https://www.youtube.com/watch?v=doZ6Y0oub_8
+- Jwt Auth Middleware : https://hono.dev/docs/middleware/builtin/jwt

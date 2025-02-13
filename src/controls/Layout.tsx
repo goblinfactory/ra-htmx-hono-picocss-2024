@@ -16,6 +16,7 @@ const Layout = ({ vars, children }: PropsWithChildren<LayoutProps>) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <title>htmx reference architecture</title>
                 <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+                <script src="https://unpkg.com/htmx-ext-form-json"></script>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
             </head>
             <body>
@@ -26,7 +27,9 @@ const Layout = ({ vars, children }: PropsWithChildren<LayoutProps>) => {
         mark { border-radius:0.4em; }
         a.currentpage { font-weight:bolder; text-decoration:none; }
         .honocode { background-color:#aaa3; color: rgb(36, 41, 46);  }
-        pre { padding-bottom:0px; }
+        pre { 
+        padding-bottom:0px; 
+        }
         @media (prefers-color-scheme: dark) {
             .honocode {
                 background-color: #3333;

@@ -10,5 +10,6 @@ export class Vars implements IVars {
 
     constructor(c: Context) {
         this.route = new URL(c.req.url).pathname.toLowerCase()
+
     }
 }

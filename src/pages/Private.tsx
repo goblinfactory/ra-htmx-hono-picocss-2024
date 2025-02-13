@@ -17,7 +17,7 @@ const Private: FC<CommentsProps> = (props) => {
     return (
         <Fragment>
             <h2>Private</h2>
-            <p>Private page secured with login and JWT tokens in header.</p>
+            <p>Private page secured with login and JWT tokens in cookie.</p>
         </Fragment>
     )
 }

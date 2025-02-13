@@ -1,0 +1,19 @@
+POST http://localhost:8787/auth/login
+content-type: application/json
+
+{
+    "email": "guest@demo.com",
+    "password": "demo-8592-45BC",
+    "remember": false
+}
+
+###
+
+POST http://localhost:8787/auth/login
+content-type: application/json
+
+{
+    "email": "guest@demo.com",
+    "password": "demo-8592-45BC",
+    "remember": false
+}

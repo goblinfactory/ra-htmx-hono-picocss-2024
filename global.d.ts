@@ -4,7 +4,8 @@ import 'typed-htmx'
 declare module 'hono' {
 
     type Bindings = {
-        SECRET: string
+        SERVER_SECRET: string
+        TEST_UNAME: string
         TEST_PWORD: string
     }
 
