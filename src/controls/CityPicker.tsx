@@ -1,4 +1,3 @@
-import { Hono } from "hono"
 import { App } from "@/index.js"
 
 const CityPicker = () => {
@@ -36,8 +35,8 @@ const citySelect = (countryCode: string) => {
     return citiesMap.get(countryCode) || []
 }
 
+export const initCityPickerControl = (app: App) => {
 
-export const initCityPicker = (app: App) => {
     app.get("/controls/city-picker/country", async (c) => {
         const cc = c.req.query('countryCode') || '' as string
         console.log(">> cc:", cc)
@@ -45,7 +44,6 @@ export const initCityPicker = (app: App) => {
         if (cities.length === 0) {
             return c.html("<select id='city-picker' disabled><option value=''>Select a country first</option></select>")
         }
-
 
         return c.html(<select id='city-picker'>
             {cities.map((city) => <option value="{city}">{city}</option>)}

@@ -1,9 +1,8 @@
-import { Hono } from "hono"
 import type { PropsWithChildren } from 'hono/jsx'
-import { Fragment } from 'hono/jsx'
 import CityPicker from '@/controls/CityPicker.js'
-import { _users } from "@/pages/Users.js"
+import { _users } from "@/pages/InfiniteScrollPage.js"
 import { App } from "@/index.js"
+import Layout from "@/controls/Layout.js"
 
 var cnt = 0
 const getTitle = () => `test hx-swap :${cnt}`
@@ -11,7 +10,7 @@ const getTitle = () => `test hx-swap :${cnt}`
 const HtmxPage = () => {
 
     return (
-        <Fragment>
+        <>
             <h2>HTMX</h2>
             <p>Minimal HTMX sandboxes, with clean UX using PicoCSS here. Larger sandboxes, like user search, or implementing infinite scroll with HTMX get their own link at the top of the page. <mark>Open F12 dev tools and watch the clean simple requests.</mark> Observe that requests to 'htmx'` and `Comments` and `Bugs` generate a SINGLE http request, wheras `infinite scroll (non-boosted)` is a full reload of 5 requests. This is <mark>amazingly clean</mark>, <i>ridiculously simple</i> together with a superbly low learning curve.</p>
             <p>See more examples at <a href='https://htmx.org/examples/'>htmx.org/examples/</a></p>
@@ -106,7 +105,7 @@ const HtmxPage = () => {
                 <h3>Better SEO urls</h3>
                 <p>To get better urls use <a href='https://unpkg.com/htmx-ext-path-params@2.0.0/path-params.js'>unpkg.com/htmx-ext-path-params@2.0.0/path-params.js</a></p>
             </article>
-        </Fragment>
+        </>
     )
 }
 
@@ -134,6 +133,7 @@ var _throttle = 0
 var _seconds = 0
 
 export const initHtmxPage = (app: App) => {
+
     app.post('/htmx/click-button', (c) => { cnt++; return c.html(<HtmxLink>{getTitle()}</HtmxLink>) })
     app.post('/htmx/click-link', (c) => { cnt++; return c.html(<HtmxButton>{getTitle()}</HtmxButton>) })
     app.post('/htmx/mouse-enter', (c) => { cnt++; return c.html(<>{cnt}</>) })
@@ -178,7 +178,7 @@ export const initHtmxPage = (app: App) => {
             </>
         )
     })
-    console.log('Htmx routes have been initialised.')
-}
 
-export default HtmxPage
+    app.get('/htmx', c => c.html(<Layout ctx={c}><HtmxPage /></Layout>))
+
+}

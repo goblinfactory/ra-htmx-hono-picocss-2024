@@ -110,3 +110,11 @@ Relative import paths need explicit file extensions in ECMAScript imports when '
 
 - Learn api JWT authentication:  https://www.youtube.com/watch?v=doZ6Y0oub_8
 - Jwt Auth Middleware : https://hono.dev/docs/middleware/builtin/jwt
+
+## Todo
+
+1. Personalise the nav based on logged in/out status.
+2. Copy the external packages locally.  
+3. Cleanup CSS, move to separate files next to pages or controls and bundle.
+4. Cleanup password management, dev.vars etc.
+5. Find some examples of the best Hono apps, and looks for some best practices.

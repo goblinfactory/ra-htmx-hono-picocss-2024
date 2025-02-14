@@ -1,5 +1,7 @@
+import Layout from "@/controls/Layout.js"
+import { App } from "@/index.js"
 
-const Login = () => {
+const LoginPage = () => {
 
     return (
         <main className="container">
@@ -56,4 +58,6 @@ const Login = () => {
     )
 }
 
-export default Login
+export const initLoginPage = (app: App) => {
+    app.get('/login', c => c.html(<Layout ctx={c}><LoginPage /></Layout>))
+}

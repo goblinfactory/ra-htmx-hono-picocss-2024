@@ -1,21 +1,20 @@
 import { Fragment, PropsWithChildren } from "hono/jsx"
-import { IVars } from "./Vars.js"
 
 export type NavProps = {
-    vars: IVars
-    targetID: string // target CSS id of the element for any hotswaps
+    loggedIn: boolean
+    route: string
 }
 
-const active = (v: IVars, route: string) => {
-    return v.route === route ? {
+const active = (currentRoute: string, route: string) => {
+    return currentRoute === route ? {
         "aria-current": "page",
         "class": "currentpage"
     } : { "href": route }
 }
 
 // #TODO: need to clean up this css, manually included here, quite messy.
-const Nav = ({ vars, targetID }: PropsWithChildren<NavProps>) => {
-
+const Nav = ({ loggedIn, route }: PropsWithChildren<NavProps>) => {
+    const cr = route
     return (
         <Fragment>
             <style>{`
@@ -47,18 +46,19 @@ const Nav = ({ vars, targetID }: PropsWithChildren<NavProps>) => {
             </style>
             <nav>
                 <ul>
-                    <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(vars, "/")}>Home</a></li>
+                    <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(cr, "/")}>Home</a></li>
                 </ul>
                 <ul>
-                    {/* <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(vars, "/login")}>login</a></li> */}
-                    <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(vars, "/htmx")}>Htmx</a></li>
-                    <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(vars, "/nuejs")}>Nuejs</a></li>
-                    <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(vars, "/users")}>Infinite scroll</a></li>
-                    <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(vars, "/bugs")}>Bugs</a></li>
-                    <li><a {...active(vars, "/login")}>Login</a></li>
-                    <li><a {...active(vars, "/logout")}>Logout</a></li>
-                    <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(vars, "/private/home")}>[401]Jwt</a></li>
-                    <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(vars, "/broken-link")}>[404]</a></li>
+                    {/* #todo - refactor out duplication */}
+                    <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(cr, "/htmx")}>Htmx</a></li>
+                    <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(cr, "/nuejs")}>Nuejs</a></li>
+                    <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(cr, "/infinite-scroll")}>Infinite scroll</a></li>
+                    <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(cr, "/bugs")}>Bugs</a></li>
+                    <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(cr, "/known-issues")}>Known-Issues</a></li>
+                    {(!loggedIn) && (<li><a {...active(cr, "/login")}>Login</a></li>)}
+                    {(loggedIn) && (<li><a {...active(cr, "/auth/logout")}>Logout</a></li>)}
+                    <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(cr, "/private/home")}>[401]Jwt</a></li>
+                    <li><a hx-boost="true" hx-swap="transition:true swap:200ms" {...active(cr, "/broken-link")}>[404]</a></li>
                 </ul>
             </nav>
         </Fragment>

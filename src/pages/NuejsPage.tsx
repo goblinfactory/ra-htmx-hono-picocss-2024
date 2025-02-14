@@ -1,5 +1,6 @@
+import Layout from "@/controls/Layout.js"
 import Code from "@/framework/Code.js"
-import { Fragment } from "hono/jsx"
+import { App } from "@/index.js"
 
 const realcode = `
     // some comments
@@ -17,9 +18,9 @@ const democode = `<Code language='ts'>{\`
     ${realcode}
 \`}</Code>`
 
-const Nuejs = () => {
+const NuejsPage = () => {
     return (
-        <Fragment>
+        <>
             <p>Experiments using various bits from <a href='https://nuejs.org'><img width='70px' src='https://nuejs.org/img/logomark-big.png' alt="Nuejs, The Design Engineer Framework" /></a> with Cloudflare, Hono, htmx & picoCSS.</p>
             <article>
                 <h4>glow</h4>
@@ -31,9 +32,11 @@ const Nuejs = () => {
                 <Code language="ts">{realcode}</Code>
                 <p><mark>note</mark> : added and deleted line syntax not currently working on my first attempt and needs to be fixed, but happy with how easily I was able to get this far.</p>
             </article>
-        </Fragment >
+        </ >
 
     )
 }
 
-export default Nuejs
+export const initNuejsPage = (app: App) => {
+    app.get('/nuejs', c => c.html(<Layout ctx={c}><NuejsPage /></Layout>))
+}

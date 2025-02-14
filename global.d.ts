@@ -1,23 +1,13 @@
 import 'typed-htmx'
 
-
 declare module 'hono' {
-
-    type Bindings = {
-        SERVER_SECRET: string
-        TEST_UNAME: string
-        TEST_PWORD: string
-    }
-
-    interface Env {
-        // Your environment variables
-        Bindings: Bindings
-    }
-
+    interface Env extends Bindings { }
     interface ContextVariableMap {
         // Variables available through c.var
+        loggedIn?: boolean
+        userEmail?: string
+        route: string
     }
-
 }
 
 declare module 'hono/jsx' {

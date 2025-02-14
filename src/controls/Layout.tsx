@@ -1,14 +1,16 @@
 import { PropsWithChildren } from "hono/jsx"
 import Nav from './Nav.js'
-import { IVars } from "./Vars.js"
 import HtmxError from "./HtmxError.js"
-
+import { Context } from "hono"
 
 export type LayoutProps = {
-    vars: IVars
+    ctx: Context
 }
 
-const Layout = ({ vars, children }: PropsWithChildren<LayoutProps>) => {
+const Layout = ({ ctx, children }: PropsWithChildren<LayoutProps>) => {
+    const loggedIn = ctx.var.loggedIn ?? false
+    const route = ctx.var.route
+
     return (
         <html lang="en">
             <head>
@@ -42,7 +44,7 @@ const Layout = ({ vars, children }: PropsWithChildren<LayoutProps>) => {
                     <h1>CF Worker, Hono, Htmx, picoCSS</h1>
                 </header>
                 <main class='container'>
-                    <Nav targetID="#mainsection" vars={vars} />
+                    <Nav loggedIn={loggedIn} route={route} />
                     <HtmxError />
                     <section id='mainsection'>
                         {children}

@@ -1,7 +1,8 @@
-import { Fragment } from "hono/jsx"
+import Layout from "@/controls/Layout.js"
+import { App } from "@/index.js"
 
-const Bugs = () => (
-    <Fragment>
+const BugsPage = () => (
+    <>
         <h2>Bugs</h2>
         <p>All the htmx stuff that did not work straight out the box. <i>Needs further investigating.</i></p>
         <article>
@@ -25,7 +26,9 @@ const Bugs = () => (
                 <button type="submit">Submit</button>
             </form>
         </article>
-    </Fragment>
+    </>
 )
 
-export default Bugs
+export const initBugsPage = (app: App) => {
+    app.get('/bugs', c => c.html(<Layout ctx={c}><BugsPage /></Layout>))
+}
